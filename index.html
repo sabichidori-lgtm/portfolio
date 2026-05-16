@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ページテンプレート</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+	<link rel="stylesheet" href="css/reset_ds-workshop.css">
+	<link rel="stylesheet" href="css/page-template-main.css">
+    <!-- Javascript -->
+	<script src="main-script.js" defer></script>
+	<script src="projects-script.js" defer></script>
+</head>
+<body>
+
+<div class="portfolio-container">
+    <header class="header">
+		<button class="menu-toggle">☰</button>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" target="content-frame">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+	<aside class="aside">
+			<h3>Projects</h3>
+			<ul class="project-list">
+				<li>
+					<a href="projects/na-chair-a.html" target="content-frame">ナチュラルチェア A</a>
+				</li>
+				<li>
+					<s>ナチュラル家具 B</s>
+				</li>
+				<li>
+					<s>ベビー&キッズ A</s>
+				</li>
+				<li>
+					<s>ベビー&キッズ B</s>
+				</li>
+			</ul>
+	</aside>
+
+	<div class="overlay"></div>
+
+
+	<main class="main">
+		<iframe src="project-default.html" name="content-frame"></iframe>
+	</main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Portfolio Name</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,707 @@
+@charset "UTF-8";
+
+/* ---------------------------------------*/
+/* body */
+/* ---------------------------------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ---------------------------------------*/
+/* 全体のコンテナ */
+/* ---------------------------------------*/
+
+.shop-wrap {
+	width: 100%;
+	max-width: 100%;
+    display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	place-items: center;
+	gap: 5rem 0;
+	margin: 0 auto;
+}
+
+.shop-wrap img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover {
+	opacity: 0.7;
+}
+
+
+.max-size {
+	width: 80%;
+	max-width: 800px;
+}
+
+
+/* ---------------------------------------*/
+/* PC表示/SP非表示 */
+/* ---------------------------------------*/
+
+.pc-project {
+    display: grid;
+	gap: 8rem 0;
+}
+
+.sp-project {
+	display: none;
+}
+
+/* ---------------------------------------*/
+/* 共通設定 */
+/* ---------------------------------------*/
+
+/***** 文章の寄せ方 *****/
+
+.text-l {
+	text-align: left;	/* 左寄せ */
+}
+
+.text-r {
+	text-align: right;	/* 右寄せ */
+}
+
+.text-c {
+	text-align: center;
+}
+
+/****** シリーズタイトルとかに使える *****/
+.sec-heading {
+    color: #000; /*文字色*/
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin: 10px 0 35px 0;
+    padding: 8px 0;
+    border-bottom: 3px solid #000; /*下線：サイズ 線種類 カラー*/
+}
+
+/* ---------------------------------------*/
+/* 見出しh4 */
+/* ---------------------------------------*/
+
+.sec-h4,
+.sec-h4-2 {
+	text-align: center;
+}
+
+
+.sec-h4 img,
+.sec-h4-2 img {
+	margin-bottom: 10px;
+}
+
+.sec-h4 h4,
+.sec-h4-2 h4 {
+    color: #000;
+    display: inline-block;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    margin: 30px 0;
+    padding: 20px 0;
+}
+
+.sec-h4 h4 {
+    border-top: 3px solid #000; /*上線：サイズ 線種類 カラー*/
+    border-bottom: 3px solid #000; /*下線：サイズ 線種類 カラー*/
+}
+
+.sec-h4-2 h4 {
+    border-top:3px double #000;/*上線：サイズ 線種類 カラー*/
+	border-bottom:3px double #000;/*下線：サイズ 線種類 カラー*/
+}
+
+.sec-h4 h4 span,
+.sec-h4-2 h4 span {
+    display: block;
+    padding: 5px 0 0 0;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.sec-h4 p,
+.sec-h4-2 p {
+	text-align: center;
+}
+
+/* ---------------------------------------*/
+/* 見出しh4 BOXタイプ */
+/* ---------------------------------------*/
+
+.sec-h4-3 {
+	text-align: center;
+	background-color: rgb(0 0 0 / 0.1);
+	padding: 40px 0;
+}
+
+.sec-h4-3 h4 {
+	color: #000; /*文字色*/
+    display: inline-block;
+    font-size: 1.3em;
+    letter-spacing: 0.2em;
+	padding-bottom: 15px;
+}
+
+.sec-h4-3 span {
+    display: block;
+    padding: 5px 0 0 0;
+    font-size: 0.7em;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+}
+
+.sec-h4-3 p {
+	position: relative;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.sec-h4-3 p::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;        /* ★ここで線の長さを自由に指定（pxでも%でも可） */
+	height: 2px;       /* 線の太さ */
+	background-color: #000; /* 線の色 */
+}
+
+/* ---------------------------------------*/
+/* セクション1 */
+/* ---------------------------------------*/
+
+.section1 {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);/* 折り返し数の指定 */
+	gap: 0.5rem 0;/* 行間・列間の余白指定 */
+}
+
+.section1 p {
+	text-align: left;
+    line-height: 1.6em;
+	padding: 0 10px;
+}
+
+.section1 img {
+	margin: 0;
+}
+
+
+/* ---------------------------------------*/
+/* セクション2 */
+/* ---------------------------------------*/
+
+/***** 共通設定 *****/
+
+.section2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);/* 折り返し数の指定 */
+	gap: 0.5rem;/* 行間・列間の余白指定 */
+}
+
+.section2 h6 {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: left;
+	color: #555;
+	margin: 10px 0;
+	padding: 4px 10px;
+}
+
+.section2 div:nth-child(odd) {	/* 奇数行：右と下に余白設定 */
+	padding-bottom: 10px;
+}
+
+.section2 div:nth-child(even) {	/* 偶数行：左と下に余白設定 */
+	padding-bottom: 10px;
+}
+
+.section2 div:nth-last-child(-n + 2) {	/* 最後の行：下余白を削除 */
+	padding-bottom: 0;
+}
+
+.section2 p {
+	text-align: left;
+	padding: 0 10px;
+}
+
+.section2 img {
+	margin: 0;
+}
+
+
+/* ---------------------------------------*/
+/* 文章中央揃え 設定 */
+/* ---------------------------------------*/
+
+.oneline {
+	width: 100%;
+	text-align: center;
+}
+
+.oneline h6 {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #555;
+	margin-bottom: 8px;
+	padding: 0 10px;
+}
+.oneline p {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 5px;
+	padding: 0 10px;
+}
+
+
+/* ---------------------------------------*/
+/* セクション3 */
+/* ---------------------------------------*/
+
+.section3 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);/* 折り返し数の指定 */
+	grid-gap: 0;/* 行間・列間の余白指定 */
+	align-items: center;
+}
+
+.section3 h6 {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #555;
+	padding: 4px 10px;
+	border-bottom: 1px solid #555;
+}
+
+.section3 p {
+	padding: 0 10px;
+}
+
+
+/* ---------------------------------------*/
+/* セクション4 */
+/* ---------------------------------------*/
+
+.section4 {
+	display: grid;
+	grid-template-columns: 60% auto;/* 折り返し数の指定 */
+	grid-gap: 1rem;/* 行間・列間の余白指定 */
+}
+
+.section4 p{
+	margin-top: 10px;
+	padding: 0 10px;
+}
+
+
+/* ---------------------------------------*/
+/* セクション5 */
+/* ---------------------------------------*/
+
+.section5 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);/* 折り返し数の指定 */
+	grid-gap: 1rem;
+
+}
+
+.section5 p {
+	margin: 5px 0;
+	text-align: center;
+}
+
+
+/* ---------------------------------------*/
+/* リンクボタン */
+/* ---------------------------------------*/
+
+/***** 文字に合わせた幅 *****/
+
+.link-btn {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+}
+
+
+/***** 横幅100% *****/
+
+.link-btn-max {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap :10px 0;
+}
+
+
+/***** リスト設定 *****/
+
+.link-btn li,
+.link-btn-max li {
+	list-style:none;
+	height: 35px;
+    line-height: 35px;
+	border-radius: 30px;
+	background: #333;
+	text-align: center;
+}
+
+.link-btn li {	/* 横並びリンクボタン */
+	padding: 0 20px;
+}
+
+.link-btn-max li {	/* 横幅100%リンクボタン */
+	padding: 0 20px;
+}
+
+/***** リンク設定 *****/
+
+.link-btn a,
+.link-btn-max a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.link-btn li:hover,
+.link-btn-max li:hover {
+	opacity: 0.7;
+}
+
+
+/* ---------------------------------------*/
+/* 画像付きリンクセクション */
+/* ---------------------------------------*/
+
+/***** 見出し設定 *****/
+
+.img-link-sec {
+	font-size: 1.1em;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	margin-bottom: 30px;
+	text-indent: 1em;
+	border-bottom: 2px solid #4D4D4D;
+}
+
+/* 画像とdlを横並びに */
+.img-link-btn {
+	display: grid;
+	grid-template-columns: 40% 1fr; /* 左:画像 右:説明 */
+	gap: 1em;
+	align-items: center;
+}
+
+.product-detil dl {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin-bottom: 20px;
+}
+
+.product-detil div {
+	display: grid;
+	grid-template-columns: 30% 1fr; /* dt 30%, dd 残り */
+	align-items: center;
+	gap: 0.5em 1em;
+	border-bottom: 1px solid #ccc; /* ← ペアごとに下線 */
+	padding: 0.4em 0;
+}
+
+.product-detil dd {
+	text-align: left;
+}
+
+.product-detil p {
+	width: 100%;
+}
+
+/***** 価格表示 *****/
+
+.price-d {
+	font-weight: bold;
+	margin: 15px auto;
+    text-align: center;
+}
+
+.price-d span {
+	font-size: 2em;
+	margin-right: 3px;
+
+}
+
+/***** リンクボタン *****/
+
+.link-d {
+	text-align: center;
+}
+
+.link-d a {
+	display: inline-block; 
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background: #333;
+	border-radius: 25px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.link-d :hover {
+	opacity: 0.7;
+}
+
+
+/* ---------------------------------------*/
+/* シリーズリンクセクション */
+/* ---------------------------------------*/
+
+.ser-link-btn {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);/* 折り返し数の指定 */
+	gap: 1em;
+	align-items: start;
+}
+
+.ser-link-btn p {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 15px auto;
+    text-align: center;
+}
+
+.ser-left img,
+.ser-right img {
+	padding-bottom: 15px;
+}
+
+/***** リスト設定 *****/
+
+.ser-left ul,
+.ser-right ul {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap :10px 0;
+	margin-bottom: 30px;
+}
+
+.ser-left li,
+.ser-right li {
+	list-style:none;
+	height: 35px;
+    line-height: 35px;
+	border-radius: 30px;
+	background: #333;
+	text-align: center;
+	padding: 0 20px;
+}
+
+/***** リンク設定 *****/
+
+.ser-left a,
+.ser-right a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.ser-left li:hover,
+.ser-right li:hover {
+	opacity: 0.7;
+}
+
+
+/* ---------------------------------------*/
+/* スペックテーブル デフォルト */
+/* ---------------------------------------*/
+
+.spec-table {
+	width:100%;
+	border: 1px solid #dbdbcf;
+	border-collapse: collapse;
+}
+
+.spec-table th {
+	width: 20%;
+    border-bottom: 1px solid #dbdbcf;
+    border-right: 1px solid #dbdbcf;
+    background: #eeeee7;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.spec-table td {
+	width: 80%;
+	text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #dbdbcf;
+}
+
+
+/* ---------------------------------------*/
+/* スペックテーブル シンプル */
+/* ---------------------------------------*/
+
+.simple-table {
+	max-width: 100%;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.simple-table th {
+	width: 20%;
+    padding: 15px 10px;
+	border-bottom: 1px solid #888;
+    vertical-align: middle;
+	text-align: center;
+}
+
+.simple-table td {
+	width: 80%;
+	text-align: left;
+    padding: 15px 10px;
+	border-bottom: 1px solid #888;
+}
+
+.simple-table tr:first-child th {	/* 最初の行(th)への設定 */
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	padding: 0 0 8px 0;
+	border-bottom: 2px solid #4D4D4D;
+	border-spacing: 10px 0;
+}
+
+.simple-table tr:last-child td,
+.simple-table tr:last-child th {	/* 最後の行(th,td)への設定 */
+	border-bottom: 2px solid #888;
+}
+
+/* ---------------------------------------*/
+/* スペックテーブル 交互に塗りつぶし */
+/* ---------------------------------------*/
+
+.bucket {
+	width:100%;
+	font-size: 0.9em;
+	border-collapse: collapse;
+}
+
+.bucket th,
+.bucket td {
+    vertical-align: middle;
+    padding: 15px 10px;
+}
+
+.bucket th {
+	width: 20%;
+	text-align: center;
+}
+
+.bucket td {
+	width: 80%;
+	text-align: left;
+}
+
+.bk-odd tr:nth-child(odd):not(:first-child)  {	/* 奇数行で塗りつぶし */
+  background: #eee;
+}
+
+.bk-even tr:nth-child(even):not(:first-child)  {	/* 偶数行で塗りつぶし */
+  background: #eee;
+}
+
+.bucket tr:first-child th {	/* 最初の行(th)への設定 */
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	padding: 0 0 8px 0;
+	border-bottom: 2px solid #4D4D4D;
+}
+
+/* ---------------------------------------*/
+/* スペックテーブル Mashデザイン */
+/* ---------------------------------------*/
+
+.mash-prod-table {
+	width: 100%;
+	margin: 0 auto 30px auto;
+	color: #333;
+	font-size: 0.9em;
+	border-bottom: 2px solid #4D4D4D;
+}
+
+.mash-prod-table th {
+	width: 25%;
+	font-weight: bold;
+	padding: 10px 0;
+	vertical-align: middle;
+    text-align: center;
+}
+
+.mash-prod-table td {
+	width: 65%;
+	padding: 10px;
+	text-align: left;
+}
+
+.mash-prod-table tr:first-child th {	/* 最初の行(th)への設定 */
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	border-top: 2px solid #4D4D4D;
+	border-bottom: 2px solid #4D4D4D;
+}
+
+
+
+/* ---------------------------------------*/
+/* 共通設定・上書き */
+/* ---------------------------------------*/
+
+/***** 下余白をゼロにする *****/
+
+.space-zero {
+	margin-bottom: 0;
+}
+
+
+
+
+/* ---------------------------------------*/
+/* SP表示/PC非表示 */
+/* ---------------------------------------*/
+
+
+@media(max-width: 767px){
+
+	.pc-project {
+		display: none;
+	}
+
+	.shop-wrap {
+		min-width: 375px;
+	}
+
+	.sp-project {
+		display: grid;
+	}
+
+}
+
+
+
+
+
+
+
+
+
