@@ -22,6 +22,7 @@ body {
 	place-items: center;
 	gap: 5rem 0;
 	margin: 0 auto;
+	padding: 0 0 20px 0;
 }
 
 .shop-wrap img {

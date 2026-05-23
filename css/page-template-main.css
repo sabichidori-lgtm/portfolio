@@ -52,7 +52,7 @@ a:hover {
 .nav ul {
 	display: grid;
 	gap: 0;
-	grid-template-columns: repeat(2, 150px);
+	grid-template-columns: repeat(3, 150px);
 	grid-template-rows: subgrid;
 	justify-content: center;
 }
@@ -61,7 +61,6 @@ a:hover {
 	color: #fff;
 	text-decoration: none;
 }
-
 
 /* 右：メイン */
 
@@ -107,54 +106,134 @@ a:hover {
 
 .footer {
 	grid-area: footer;
+	display: flex;
 	line-height:60px;
-	place-items: center;
-	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
 	background: #f4f4f4;
-	-webkit-appearance: none;
 }
 
 
 /* ---------------------------------------*/
 /* About */
 /* ---------------------------------------*/
-
-.about,
-.works {
+/*
+.about {
     display: grid;
 	grid-template-columns: repeat(1, 1fr);
-	gap: 1rem 0;
+	place-items: center start;
+	gap: 0.4rem 0;
 	padding: 20px;
 }
 
+.about h2 {
+	font-size: 1.2em;
+    letter-spacing: 0.1em;
+	font-weight: bold;
+	margin: 0 0 20px 0;
+}
+
+.about p {
+	line-height: 1.8em;
+	margin: 0;
+}
+*/
 
 /* ---------------------------------------*/
 /* プロジェクト */
 /* ---------------------------------------*/
 
+.index,
+.about,
+.profile,
 .project-card {
     display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	place-items: center start;
-	gap: 1.5rem 0;
 	padding: 20px;
 }
 
-.pproject-card_section h2 {
+.index,
+.profile,
+.project-card {
+	gap: 1.5rem 0;
+}
+
+.about {
+	gap: 0.4rem 0;
+}
+
+
+/***** h2 *****/
+
+.project-card_section h2 {
 	font-size: 1.2em;
     letter-spacing: 0.1em;
 	font-weight: bold;
-	margin: 0 0 5px 0;
+	margin: 0 0 8px 0;
 }
 
-.project-card_section p, 
-.project-card_section ul {
-	line-height: 1.6;
-	margin: 0;
+.index h2,
+.about h2 {
+	font-size: 1.2em;
+    letter-spacing: 0.1em;
+	font-weight: bold;
+	margin: 0 0 20px 0;
 }
+
+
+/***** h3 *****/
+
+.project-card_section h3 {
+	width: 200px;
+    letter-spacing: 0.1em;
+	font-weight: bold;
+	margin: 0 0 8px 0;
+	padding: 0 0 2px 2px;
+	border-bottom: 1px solid #333;
+}
+
+
+/***** p *****/
+
+.project-card_section p {
+	line-height: 1.6em;
+	margin: 0 0 10px 0;
+}
+
+.index p,
+.about p {
+	line-height: 1.8em;
+	margin: 0 0 10px 0;
+}
+
+
+/***** p/矢印表示 *****/
+
+.view-arrow {
+	position: relative;
+	padding-left: 1.5em;
+}
+
+.view-arrow::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 6px;
+	height: 6px;
+	border-top: 2px solid #333;
+	border-right: 2px solid #333;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+/***** ul *****/
 
 .project-card_section ul {
 	list-style: none;
+	line-height: 1.6;
+	margin: 0;
 	padding: 0;
 }
 
@@ -197,7 +276,7 @@ a:hover {
 
 	/* ナビゲーション */
 	.nav ul {
-		grid-template-columns: repeat(2, auto);
+		grid-template-columns: repeat(3, auto);
 		gap: 0 2em;
 	}
 
