@@ -111,6 +111,7 @@ a:hover {
 	place-items: center;
 	text-align: center;
 	background: #f4f4f4;
+	-webkit-appearance: none;
 }
 
 
