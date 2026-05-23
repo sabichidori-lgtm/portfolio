@@ -109,6 +109,7 @@ a:hover {
 	grid-area: footer;
 	line-height:60px;
 	place-items: center;
+	text-align: center;
 	background: #f4f4f4;
 }
 
