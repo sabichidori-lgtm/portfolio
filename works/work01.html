@@ -1,0 +1,153 @@
+<!--
+	img命名規則
+	work01-img1_01：ページ内表示用
+	work01-img1_02：モーダル表示用
+-->
+
+<!-- パンくずリスト・目次を表示 true / 非表示 false -->
+<article class="page page-works work-detail" data-breadcrumb="true" data-pagelink="false" data-title="家具ブランドA 商品ページテンプレート制作" data-prev="works" data-next="works/work02">
+	<h2>家具ブランドA 商品ページテンプレート制作</h2>
+
+	<section class="work">
+		<h3>概要</h3>
+		<p>家具ブランドAのシリーズ商品を、<span class="accent">短期間で統一感を保ちながら制作・更新するための商品ページテンプレート</span>を設計・制作しました。</p>
+		<p>商品ごとに異なる情報や画像を差し替えながら運用できるよう、共通する構成を整理。</p>
+		<p>楽天・Yahoo!ショッピングのPC/SPページに展開しやすい構造とし、<span class="accent">商品追加や更新時に、ページ全体を作り直す必要がない運用</span>を目指しました。</p>
+	</section>
+
+	<section class="work">
+		<h3>制作背景・課題</h3>
+		<p>
+			家具ブランドAでは、商品ごとに掲載する文字情報が多く、シリーズ商品を追加するたびにページ制作の負担が発生していました。
+		</p>
+		<p>
+			そこで、ページごとに個別のデザインを作るのではなく、<span class="accent">共通部分をテンプレート化し、商品ごとの差し替えだけで制作できる仕組み</span>を検討しました。
+		</p>
+		<ul>
+			<li>文字情報が多く、商品ごとのページ制作に時間がかかる</li>
+			<li>シリーズ商品としての統一感を維持したい</li>
+			<li>商品追加・更新時の作業量を減らしたい</li>
+			<li>楽天・Yahoo!ショッピングそれぞれの仕様に対応する必要がある</li>
+			<li>商品ごとに画像や文章量が異なるため、差し替えてもレイアウトが崩れにくい構成が必要</li>
+		</ul>
+	</section>
+
+	<section class="work">
+		<h3>制作内容</h3>
+		<p class="default-lead">「毎回作る」のではなく、「差し替えて使える」構造へ</p>
+		<p>既存テンプレートをベースに、家具ブランドAの商品に共通する情報を整理。</p>
+		<p>見出し・画像・説明文などの共通部分をあらかじめテンプレートとして設計し、商品ごとに異なる情報を差し替えることでページを制作できる構成にしました。。</p>
+		<p>特に、<span class="accent">文章量の違いによってレイアウトが崩れにくいこと</span>を意識し、商品追加時の微調整を最小限にしています。</p>
+	</section>
+
+	<section class="work">
+		<h3>ECモールの制約を前提にした設計</h3>
+		<p>楽天・Yahoo!ショッピングでは、通常のWebサイトとは異なり、使用できるHTML・CSSやページ構成に制約があります。</p>
+		<p>そのため、自由にデザインするのではなく、「制約の中で、どこまで共通化・再利用できるか」を基準に構成を設計しました。</p>
+		<p>PCページは共通のデザインをベースとし、各モールへの展開時には必要な部分だけを調整。</p>
+		<p>SPページについては、各モールの仕様に合わせながら、PC版とのデザイン上の統一感を保てるようにしています。</p>
+		<div class="modal-preview grid4">
+			<button data-modal="rakuten-pc">
+				<img src="works/img/work01-img1_01.jpg" alt="完成イメージ 楽天PC">
+				<span>楽天PC</span>
+			</button>
+			<button data-modal="rakuten-sp">
+				<img src="works/img/work01-img2_01.jpg" alt="完成イメージ 楽天SP">
+				<span>楽天SP</span>
+			</button>
+			<button data-modal="yahoo-pc">
+				<img src="works/img/work01-img3_01.jpg" alt="完成イメージ yahooPC">
+				<span>yahooPC</span>
+			</button>
+			<button data-modal="yahoo-sp">
+				<img src="works/img/work01-img4_01.jpg" alt="完成イメージ yahooSP">
+				<span>yahooSP</span>
+			</button>
+		</div>
+		<div class="modal" id="rakuten-pc">
+			<img src="works/img/work01-img1_02.jpg">
+		</div>
+		<div class="modal" id="rakuten-sp">
+			<img src="works/img/work01-img2_02.jpg">
+		</div>
+		<div class="modal" id="yahoo-pc">
+			<img src="works/img/work01-img3_02.jpg">
+		</div>
+		<div class="modal" id="yahoo-sp">
+			<img src="works/img/work01-img4_02.jpg">
+		</div>
+	</section>
+
+	<section class="work">
+		<h3>商品ごとの差し替えを前提にしたテンプレート</h3>
+		<p>
+			テンプレートでは、商品ごとに変わる情報と、シリーズ共通のデザイン要素を分けて設計。<br>
+			文章や画像を差し替えても全体のレイアウトを維持しやすくすることで、<span class="accent">新しい商品を追加する際に、ページ全体を一から組み直す必要がない構成</span>にしました。<br>
+			また、文章量に応じて改行や微調整を行えるようにし、商品ごとの情報量の違いにも対応しています。
+		</p>
+	</section>
+
+	<section class="work">
+		<h3>レスポンシブ対応</h3>
+		<p>
+			テンプレートでは、商品ごとに変わる情報と、シリーズ共通のデザイン要素を分けて設計。<br>
+			文章や画像を差し替えても全体のレイアウトを維持しやすくすることで、<span class="accent">新しい商品を追加する際に、ページ全体を一から組み直す必要がない構成</span>にしました。<br>
+			また、文章量に応じて改行や微調整を行えるようにし、商品ごとの情報量の違いにも対応しています。
+		</p>
+		<div class="modal-preview grid4">
+			<button data-modal="work01-pc">
+				<img src="works/img/work01-img5_01.jpg" alt="PC表示時">
+				<span>PC表示時</span>
+			</button>
+			<button data-modal="work01-sp">
+				<img src="works/img/work01-img6_01.jpg" alt="SP表示時">
+				<span>SP表示時</span>
+			</button>
+		</div>
+		<div class="modal" id="work01-pc">
+			<img src="works/img/work01-img5_02.jpg">
+		</div>
+		<div class="modal" id="work01-sp">
+			<img src="works/img/work01-img6_02.jpg">
+		</div>
+	</section>
+
+	<section class="work">
+		<h3>制作を通して考えたこと</h3>
+		<p>
+			今回のテンプレート化では、単純にデザインを統一するだけでなく、その後の商品追加・更新まで含めて制作工程を考えることを重視しました。<br>
+			シリーズ商品を追加するたびに同じレイアウトを作り直すのではなく、<br><br>
+
+			共通部分を先に設計する<br>
+			→ 商品ごとの情報を差し替える<br>
+			→ 必要な部分だけ調整する<br><br>
+
+			という流れにすることで、制作時の判断や作業を減らしています。<br>
+			ECサイトでは、デザイン上の自由度だけでなく、モールの仕様や画像・文字量などの制約も考慮する必要があります。<br>
+			そのため、<span class="accent">「きれいに見えるデザイン」だけでなく、「繰り返し使えるデザイン」まで含めて設計すること</span>を意識しました。
+
+		</p>
+	</section>
+
+	<section class="work">
+		<h3>担当範囲</h3>
+		<ul>
+			<li>商品ページテンプレートの構成設計</li>
+			<li>ブランドイメージに合わせたデザイン調整</li>
+			<li>HTML/CSSコーディング</li>
+			<li>楽天・Yahoo!ショッピング対応</li>
+			<li>PC・SPページ制作</li>
+			<li>レスポンシブ対応</li>
+			<li>商品追加・更新を想定したテンプレート設計</li>
+		</ul>
+	</section>
+
+	<section class="work">
+		<h3>使用技術</h3>
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>Illustrator（デザイン調整・素材作成）</li>
+		</ul>
+	</section>
+</article>

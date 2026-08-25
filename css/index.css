@@ -1,0 +1,311 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
+
+/* ---------------------------------------*/
+/* カラー設定 */
+/* ---------------------------------------*/
+
+:root {
+
+	/***** ベースカラー *****/
+	--color-main: #4F8F91;
+	--color-sub: #E8F1EE;
+	--color-white: #FFFFFF;
+	--color-text: #333333;
+	--color-border: #DDE8E4;
+	--color-accent: #B65F43;
+
+
+	/***** header・footer *****/
+	--header-bg: var(--color-main);
+	--header-text: var(--color-white);
+
+	--footer-bg: var(--color-main);
+	--footer-text: var(--color-white);
+
+
+	/***** main *****/
+	--main-bg: var(--color-white);
+	--main-text: var(--color-text);
+
+
+	/***** aside *****/
+	--aside-bg: var(--color-sub);
+
+	/***** nav *****/
+	--breadcrumb-bg: var(--color-white);
+	--pagelink-bg: var(--color-white);
+
+
+	/***** border *****/
+	--border-color: var(--color-border);
+
+	/***** work-accent *****/
+	--accent-text: var(--color-accent);
+
+}
+
+
+/* ---------------------------------------*/
+/* 全体 */
+/* ---------------------------------------*/
+
+.container {
+	width: 100%;
+	max-width: 100%;
+	height: 100vh;
+	min-height: 0;
+	display: grid;
+	grid: "aside header space"
+		  "aside main space"
+		  "aside footer space";
+	grid-template-rows: 50px 1fr 50px;
+	grid-template-columns: 300px minmax(0, 840px) 1fr;
+	color: var(--color-text);
+	background-color: var(--color-sub);
+	overflow: hidden;
+}
+
+
+a {
+	text-decoration: none;
+	color: var(--color-main);
+}
+
+a:hover {
+	opacity: 0.7;
+}
+
+/* ---------------------------------------*/
+/* header */
+/* ---------------------------------------*/
+
+header {
+	grid-area: header;
+	display: grid;
+	place-items: center;
+	background-color: var(--header-bg);
+}
+
+
+header a {
+	font-family: "Klee One", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.4em;
+	letter-spacing: 0.4em;
+	color: var(--header-text);
+}
+
+
+/* ---------------------------------------*/
+/* aside */
+/* ---------------------------------------*/
+
+aside {
+	grid-area: aside;
+	display: grid;
+	place-items: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+	padding: 20px;
+	background-color: var(--aside-bg);
+}
+
+aside ul {
+	display: grid;
+	gap: 50px;
+	place-items: center;
+	font-size: 0.9em;
+}
+
+#menu-toggle {
+	display: none;
+}
+
+
+/* ---------------------------------------*/
+/* main */
+/* ---------------------------------------*/
+
+main {
+	grid-area: main;
+	height: 100%;
+	min-height: 0;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	gap: 0;
+	background-color: var(--main-bg);
+}
+
+
+/***** 中身が溢れたらスクロールバー表示 *****/
+
+#content {
+	overflow-y: auto;
+	min-height: 0;
+}
+
+/***** パンくずリスト / 目次　共通設定 *****/
+
+.breadcrumb,
+.page-link {
+	display: grid;
+	font-size: 0.9em;
+	padding: 10px 15px;
+}
+
+.breadcrumb ol,
+.page-link ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+	list-style: none;
+}
+
+.breadcrumb li,
+.page-link li {
+	display: flex;
+	align-items: center;
+}
+
+.breadcrumb li + li::before {
+	content: ">";
+	margin: auto 0.5rem;
+}
+
+
+/***** パンくずリスト *****/
+
+.breadcrumb {
+	font-size: 0.6em;
+	background-color: var(--breadcrumb-bg);
+}
+
+.breadcrumb ol {
+	gap: 8px;
+}
+
+
+/***** 目次 *****/
+
+.page-link {
+	font-size: 0.8em;
+	background-color: var(--page-link-bg);
+}
+
+.page-link ul {
+	gap: 50px;
+}
+
+.page-link li:first-child::before {
+	content: "←";
+	margin-right: 0.3rem;
+}
+
+.page-link li:last-child::after {
+	content: "→";
+	margin-left: 0.3rem;
+}
+
+
+/* ---------------------------------------*/
+/* footer */
+/* ---------------------------------------*/
+
+footer {
+	grid-area: footer;
+	display: grid;
+	place-items: center;
+	color: var(--footer-text);
+	background-color: var(--footer-bg);
+}
+
+
+/* ---------------------------------------*/
+/* sp */
+/* ---------------------------------------*/
+
+@media(max-width: 767px){
+
+	.container {
+		height: 100vh;
+		grid: "header"
+			  "main"
+			  "footer";
+		grid-template-rows: 60px 1fr 60px;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 0;
+	}
+
+	/* 左：サイドバー */
+	/* ハンバーガー表示 */
+	.menu-button {
+		display: block;
+		position: fixed;
+		top: 10px;
+		left: 16px;
+		font-size: 1.5em;
+		z-index: 1100;
+		color: #fff;
+	}
+
+	/* asideをスライドメニュー化 */
+	aside {
+		position: fixed;
+		top: 60px;
+		left: 0;
+		width: 260px;
+		height: calc(100% - 60px);
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		z-index: 1000;
+	}
+
+	/* 開いた状態 */
+	#menu-toggle:checked ~ aside {
+		transform: translateX(0);
+	}
+
+	/* overlay表示 */
+	.overlay {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.3s;
+		z-index: 900;
+	}
+
+	/* 開いたらoverlay有効化 */
+	#menu-toggle:checked ~ .overlay {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+}
+
+/* ---------------------------------------*/
+/* pc */
+/* ---------------------------------------*/
+
+@media(min-width: 768px){
+
+	.menu-button {
+		display: none;
+	}
+
+	.overlay {
+		display: none;
+	}
+}
+
+
