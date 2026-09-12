@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+
+/* ---------------------------------------*/
+/* work 共通設定 */
+/* ---------------------------------------*/
+
+.col1 p {
+	padding: 0 3rem;
+}
+
+
+
+
+/* ---------------------------------------*/
+/* work02 */
+/* ---------------------------------------*/
+
+.work02 {
+	grid-template-rows: 1fr;
+	gap: 3rem 0;
+}
+
+.work02 ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem 0;
+}
+
+.work02 li {
+	padding-left: 1.2em;
+}
+
+.work02 li::before {
+	content: "▪";
+}
+
+.col2.reverse {
+	flex-direction: row-reverse;
+}
+
+
+
+
+/***** work02-header *****/
+
+.work02 .work-header {
+	display: grid;
+	place-items: center;
+	gap: 2em 0;
+	margin-bottom: 2rem;
+}
+
+.work02 .work-header img {
+	max-width: 80%;
+}
+
+.work02 .work-header h3 {
+	display: inline-block;
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	text-align: center;
+	border-top: 3px double #333;
+	border-bottom: 3px double #333;
+	padding: 10px 5px;
+}
+
+.work02 .work-header span {
+	display: block;
+	padding: 5px 0 0 0;
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+.work02 .work-header p {
+	line-height: 1.6rem;
+	text-align: center;
+}
+
+
+
+/***** work02-col1 *****/
+
+.work02 .col1 {
+	display: grid;
+	gap: 1.5rem;
+	place-items: center;
+	margin-bottom: 2rem;
+}
+
+.work02 .col1 h4 {
+	width: 100%;
+	letter-spacing: 1.2rem;
+	padding-left: 1.2rem;
+	line-height: 3.5rem;
+	font-weight: bold;
+	font-size: 1.6rem;
+	text-align: center;
+	border: 0;
+	background-color: var(--color-sub);
+}
+
+
+
+/***** work02-col2 *****/
+
+.work02 .col2 {
+	display: flex;
+	gap: 1.5rem;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.work02 .col2 h4 {
+	flex: 1;
+	aspect-ratio: 1 / 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 1.5rem;
+	padding-left: 1.5rem;
+	line-height: 4.5rem;
+	font-weight: bold;
+	font-size: 2rem;
+	border: 0;
+	background-color: var(--color-sub);
+}
+
+.work02 .col2 ul,
+.work02 .col2 p {
+	flex: 2;
+}
+
+
+
+
+
+
+/* ---------------------------------------*/
+/* sp */
+/* ---------------------------------------*/
+
+@media(max-width: 767px){
+
+
+}
