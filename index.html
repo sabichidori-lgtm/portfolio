@@ -10,36 +10,39 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/work.css">
 
 <!-- JS -->
 <script src="js/script.js" defer></script>
 </head>
 
 <body>
-	<div class="container">
+
+	<div class="container index">
 		<input type="checkbox" id="menu-toggle">
 		<header>
-			<label for="menu-toggle" class="menu-button">☰</label>
-			<a href="default.html">さび猫屋</a>
+			<label for="menu-toggle">☰</label>
+			<div>
+				<a href="default.html">SABINEKOYA</a>
+			</div>
 		</header>
-		<aside class="global-nav">
+
+		<aside>
 			<ul>
 				<li><a href="default.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="works.html">Works</a></li>
+				<li><s>Works</s> （工事中）</li>
 				<li><a href="skills.html">Skills</a></li>
 				<li><a href="profile.html">Profile</a></li>
 			</ul>
 		</aside>
 
-		<label for="menu-toggle" class="overlay"></label>
+			<label for="menu-toggle" class="overlay"></label>
 
 		<main>
 			<nav class="breadcrumb">
 				<ol>
 				</ol>
 			</nav>
+			<div class="main-image"><img src="img/main-img.jpg" alt="メインバナー"></div>
 
 			<div id="content"><!-- fetchでページが入る --></div>
 

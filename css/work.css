@@ -5,11 +5,17 @@
 /* work 共通設定 */
 /* ---------------------------------------*/
 
-.col1 p {
-	padding: 0 3rem;
+
+.work-group {
+	display: grid;
+	gap: 5rem;
+	padding: 2rem;
 }
 
 
+.col1-flex p {
+	padding: 0 3rem;
+}
 
 
 /* ---------------------------------------*/
@@ -18,8 +24,9 @@
 
 .work02 {
 	grid-template-rows: 1fr;
-	gap: 3rem 0;
+	gap: 0;
 }
+
 
 .work02 ul {
 	display: flex;
@@ -35,11 +42,9 @@
 	content: "▪";
 }
 
-.col2.reverse {
+.col2-flex.reverse {
 	flex-direction: row-reverse;
 }
-
-
 
 
 /***** work02-header *****/
@@ -47,8 +52,7 @@
 .work02 .work-header {
 	display: grid;
 	place-items: center;
-	gap: 2em 0;
-	margin-bottom: 2rem;
+	margin-bottom: 2.5rem;
 }
 
 .work02 .work-header img {
@@ -62,6 +66,7 @@
 	text-align: center;
 	border-top: 3px double #333;
 	border-bottom: 3px double #333;
+	margin: 2rem auto 1.5rem;
 	padding: 10px 5px;
 }
 
@@ -79,16 +84,20 @@
 
 
 
-/***** work02-col1 *****/
+/***** work02-col1-flex *****/
 
-.work02 .col1 {
-	display: grid;
+.work02 .col1-flex {
 	gap: 1.5rem;
 	place-items: center;
-	margin-bottom: 2rem;
+	padding: 4rem auto 6rem;
+	background-color: #f5f2ee;
 }
 
-.work02 .col1 h4 {
+.work02 .col1-flex:last-of-type{
+	margin-bottom: 3rem;
+}
+
+.work02 .col1-flex h4 {
 	width: 100%;
 	letter-spacing: 1.2rem;
 	padding-left: 1.2rem;
@@ -97,24 +106,28 @@
 	font-size: 1.6rem;
 	text-align: center;
 	border: 0;
-	background-color: var(--color-sub);
+	color: #8c6239;
+	background-color: #fff;
 }
 
 
+/***** work02-col2-flex *****/
 
-/***** work02-col2 *****/
+.work02 .work-group {
+	background-color: #f5f2ee;
+}
 
-.work02 .col2 {
+.work02 .col2-flex {
 	display: flex;
 	gap: 1.5rem;
 	align-items: center;
-	margin-bottom: 50px;
 }
 
-.work02 .col2 h4 {
+.work02 .col2-flex h4 {
 	flex: 1;
-	aspect-ratio: 1 / 1;
+	width: 80%;
 	display: flex;
+	aspect-ratio: 1 / 1;
 	align-items: center;
 	justify-content: center;
 	letter-spacing: 1.5rem;
@@ -122,15 +135,34 @@
 	line-height: 4.5rem;
 	font-weight: bold;
 	font-size: 2rem;
-	border: 0;
-	background-color: var(--color-sub);
+	color: #8c6239;
+	background-color: #fff;
 }
 
-.work02 .col2 ul,
-.work02 .col2 p {
+.work02 .col2-flex ul,
+.work02 .col2-flex p {
 	flex: 2;
 }
 
+
+/***** work02-col2-grid *****/
+
+.work02 .col2-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	place-items: center;
+	background-color: #f5f2ee;
+
+}
+
+
+.work02 .col2-grid dl {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1rem;
+	background-color: #fff;
+}
 
 
 
