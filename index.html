@@ -13,50 +13,32 @@
 
 <!-- JS -->
 <script src="js/script.js" defer></script>
+
 </head>
 
 <body>
 
 	<div class="container index">
-		<input type="checkbox" id="menu-toggle">
-		<header>
-			<label for="menu-toggle">☰</label>
-			<div>
-				<a href="default.html">SABINEKOYA</a>
-			</div>
-		</header>
-
-		<aside>
+		<nav>
 			<ul>
-				<li><a href="default.html">Home</a></li>
-				<li><s>Works</s> （作成中）</li>
+				<li class="nav-home"><a href="default.html">Home</a></li>
+				<li><a href="works.html">Works</a></li>
 				<li><a href="skills.html">Skills</a></li>
 				<li><a href="profile.html">Profile</a></li>
 			</ul>
-		</aside>
+		</nav>
 
-			<label for="menu-toggle" class="overlay"></label>
+		<header>
+			<h1><a href="default.html">SABINEKOYA</a></h1>
+			<div class="mv-bg"><img src="img/mv-bg.jpg" alt="メインバナー"></div>
+		</header>
 
 		<main>
-			<nav class="breadcrumb">
-				<ol>
-				</ol>
-			</nav>
-			<div class="main-image"><img src="img/main-img.jpg" alt="メインバナー"></div>
-
 			<div id="content"><!-- fetchでページが入る --></div>
-
-			<nav class="page-link">
-				<ul>
-					<li><a href="#" class="prev-link">戻る</a></li>
-					<li><a href="works.html">目次</a></li>
-					<li><a href="#" class="next-link">次へ</a></li>
-				</ul>
-			</nav>
 		</main>
 
 		<footer>
-			&#169;2026 shabinekoya
+			&copy; 2026 shabinekoya
 		</footer>
 	</div>
 </body>
