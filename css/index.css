@@ -14,9 +14,9 @@
 	--color-white: #FFFFFF;
 	--color-black: #000000;
 	--color-text: #333333;
-	--color-link: #000000;
+	--color-link: #333333;
 	--color-border: #DDE8E4;
-	--color-accent: #B65F43;
+	--color-accent: #a6b570;
 
 
 	/***** header・footer *****/
@@ -37,7 +37,8 @@
 
 	/***** nav *****/
 	--nav-bg: var(--color-link);
-	--nav-text: var(--color-white);
+	--nav-text: var(--color-text);
+	--nav-home: var(--color-accent);
 
 	--breadcrumb-bg: var(--color-white);
 	--pagelink-bg: var(--color-white);
@@ -45,7 +46,7 @@
 
 	/***** a *****/
 	--link-text: var(--color-text);
-	--link-bg: var(--color)
+	--link-bg: var(--color);
 
 
 	/***** border *****/
@@ -91,20 +92,19 @@ body {
 
 .container {
 	width: 100%;
-	height: 100vh;
-	min-height: 0;
+	min-height: 100vh;
+	height: auto;
 
 	display: grid;
-	grid: "header"
+	grid: "nav"
+		  "header"
 		  "main"
 		  "footer";
 
-	grid-template-rows: 60px 1fr 50px;
+	grid-template-rows: auto 430px 1fr 50px;
 	grid-template-columns: 1fr;
 
 	position: relative;
-	overflow: hidden;
-
 }
 
 
@@ -126,22 +126,118 @@ a:hover {
 
 
 /* ========================================
-   header
+   nav
 ======================================== */
 
-header {
-	grid-area: header;
+
+nav {
+	grid-area: nav;
+
+	position: sticky;
+	top: 0;
+	z-index: 100;
 
 	display: grid;
-	grid-template-columns: 1fr auto;
+	height: 40px;
 	place-items: center;
 
 	background-color: var(--header-bg);
-	background-color: var(--header-text);
+	color: var(--header-text);
 }
 
 
-header a {
+
+/* ========================================
+   nav内のリスト
+======================================== */
+
+
+nav ul {
+	display: flex;
+	gap: 10px 50px;
+	justify-content: center;
+
+	list-style: none;
+
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0;
+}
+
+
+nav a {
+	display: block;
+
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 0.2rem;
+
+	color: var(--nav-text);
+}
+
+
+.nav-home a {
+	color: var(--nav-home);
+}
+
+
+
+
+/* =========================================
+	header
+========================================== */
+
+
+header {
+	grid-area: header;
+	position: relative;
+
+	width: 100%;
+	min-width: 0;
+	min-height: 0;
+	overflow: hidden;
+}
+
+header h1 {
+	position: absolute;
+
+	top: 160px;
+	left: 50px;
+	z-index: 10;
+
+	width: 300px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50% 50% 45% 55% / 60% 60% 40% 40%;
+	/* 左上 右上 右下 左下 / 水平左上 水平右上 水平右下 水平左下 */
+
+	padding: 30px;
+
+	background-color: var(--aside-bg);
+}
+
+
+header h1::after {
+	content: "";
+	position: absolute;
+	bottom: -6px;
+	right: 45px;
+
+	/* 三角形の作成 */
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 0 0 16px;
+	border-color: var(--aside-bg) transparent transparent transparent;
+
+	transform: rotate(-15deg);
+}
+
+
+header h1 a {
 	font-family: "Klee One", cursive;
 	font-weight: 400;
 	font-style: normal;
@@ -152,51 +248,34 @@ header a {
 }
 
 
-header div {
-	justify-self: end;
-	padding-right: 20px;
+/* main内コンテンツ */
+
+.mv-bg {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 
+/* main内の画像 */
 
-/* =========================================
-	ハンバーガーメニュー
-========================================== */
+.mv-bg img {
+	display: block;
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
 
-
-/* チェックボックス本体 */
-
-#menu-toggle {
-	display: none;
+	transition: transform 0.5s ease, filter 0.5s ease;
+	transform: scale(1);
+	filter: blur(0);
 }
 
 
-/* ☰ のlabel */
+/* main内の画像 マウスホバー時 */
 
-header label[for="menu-toggle"] {
-	justify-self: start;
-
-	position: absolute;
-	top: 15px;
-	left: 15px;
-
-	z-index: 20;
-
-	display: flex;
-	width: 30px;
-	height: 30px;
-
-	align-items: center;
-	justify-content: center;
-
-	cursor: pointer;
-}
-
-
-/* indexではハンバーガーは隠す */
-
-.container.index header label[for="menu-toggle"] {
-	display: none;
+.mv-bg:hover img {
+	transform: scale(1.02);
+	filter: blur(2px);
 }
 
 
@@ -212,7 +291,6 @@ main {
 	width: 100%;
 	min-width: 0;
 	min-height: 0;
-	overflow: hidden;
 
 	background-color: var(--main-bg);
 	color: var(--main-text);
@@ -222,126 +300,6 @@ main {
 #content {
 	width: 100%;
 	min-height: 0;
-}
-
-
-/* main内コンテンツ */
-
-.main-image {
-	width: 100%;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-}
-
-
-/* main内の画像 */
-
-.main-image img {
-	display: block;
-	width: 100%;
-	height: 500px;
-	object-fit: cover;
-
-	transition: transform 0.5s ease, filter 0.5s ease;
-	transform: scale(1);
-	filter: blur(0);
-}
-
-
-/* main内の画像 マウスホバー時 */
-
-.main-image:hover img {
-	transform: scale(1.02);
-	filter: blur(2px);
-}
-
-
-
-/* =========================================
-	aside
-========================================== */
-
-aside {
-	position: absolute;
-
-	top: 160px;
-	left: 50px;
-
-	z-index: 10;
-
-	width: 240px;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	padding: 20px;
-
-	background-color: var(--aside-bg);
-}
-
-
-/* index以外ではasideを非表示 */
-
-.container:not(.index) aside {
-	display: none;
-}
-
-
-
-/* ========================================
-   aside内のリスト
-======================================== */
-
-aside ul {
-	display: grid;
-	gap: 50px;
-
-	place-items: center;
-
-	padding: 0;
-	margin: 0;
-
-	list-style: none;
-
-	font-size: 0.9em;
-	font-weight: bold;
-}
-
-
-
-/* ========================================
-   overlay
-======================================== */
-
-.overlay {
-	display: none;
-
-	position: fixed;
-	inset: 0;
-	z-index: 5;
-	background-color: rgba(0, 0, 0, .3);
-
-	cursor: pointer;
-}
-
-
-
-/* ========================================
-   ハンバーガーON時
-======================================== */
-
-/* チェックが入ったらoverlayを表示 */
-
-#menu-toggle:checked ~ .overlay {
-	display: block;
-}
-
-
-/* チェックが入ったらasideを表示 */
-
-#menu-toggle:checked ~ aside {
-	display: flex;
 }
 
 
@@ -356,7 +314,7 @@ footer {
 
 	display: flex;
 	align-items: center;
-	justify-content: right;
+	justify-content: center;
 	font-size: 0.9rem;
 
 	margin: 0;
@@ -375,11 +333,57 @@ footer {
 
 @media(max-width: 767px){
 
+
+	/* ===== container ===== */
+
+	.container {
+		grid-template-rows: auto 300px 1fr 50px;
+
+	}
+
+
+
+	/* ===== nav ===== */
+
+	nav ul {
+		gap: 10px 20px;
+	}
+
+	nav a {
+		font-size: 0.9rem;
+		letter-spacing: 0.1rem;
+	}
+
+
+
 	/* ===== header ===== */
 
-	header a {
-		font-size: 1rem;
+	header h1 {
+		position: absolute;
+
+		top: 30px;
+		left: 10px;
+
+		width: 180px;
+
+		padding: 20px 30px;
 	}
+
+	header h1 a {
+		font-size: 0.9rem;
+		letter-spacing: 0.2rem;
+	}
+
+
+	.mv-bg {
+
+	}
+
+	/* main内の画像 */
+	.mv-bg img {
+		height: 400px;
+	}
+
 
 
 
@@ -390,63 +394,12 @@ footer {
 		margin-bottom: 30px;
 	}
 
-	.main-image {
-		width: 100%;
-		height: 300px;
-		overflow: hidden;
-	}
-
-	/* main内の画像 */
-	.main-image img {
-		position: relative;
-		top: -50px;
-		left: 0;
-	}
-
-
-
-	/* ===== aside非表示 ===== */
-
-	.container.index aside {
-		display: none;
-	}
-
-
-
-	/* ===== ハンバーガーメニュー表示 ===== */
-
-	.container.index header label[for="menu-toggle"] {
-		display: block;
-	}
-
-
-
-	/* ===== aside ===== */
-
-	aside {
-		top: 0;
-		left: 0;
-
-		width: 100%;
-		height: 100%;
-		background: rgba(255, 255, 255, 0.7);
-	}
-
-	aside a {
-		background: transparent;
-	}
-
-	/* overlay表示 */
-	.overlay {
-		background: rgba(0,0,0,0.5);
-	}
-
 
 
 	/* ===== footer ===== */
 
 	footer {
-		justify-content: center;
+		
 	}
 
 

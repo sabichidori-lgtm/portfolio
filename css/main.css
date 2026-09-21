@@ -13,7 +13,7 @@
 article {
 	width: 100%;
 	margin: 0;
-	padding: 20px;
+	padding: 30px;
 
     animation: content-fade 0.3s ease;
 }
@@ -33,22 +33,18 @@ article {
 
 
 
-
-/* =========================================
-	h2
-=========================================-*/
-
-
-
 /* =========================================
 	h2
 =========================================-*/
 
 .page h2 {
-	font-size: 1.2em;
-    letter-spacing: 0.1em;
+	font-size: 1.3em;
+    letter-spacing: 0.2em;
 	font-weight: bold;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
+	padding: 0 10px 3px;
+
+	border-bottom: 1px solid #333;
 
 	color: var(--page-h2-color);
 }
@@ -59,9 +55,76 @@ article {
 	p
 =========================================-*/
 
-article p {
+.page p {
 	line-height: 1.8;
+
+	padding: 0 10px;
 }
+
+
+
+/* =========================================
+	Skills
+=========================================-*/
+
+
+.skills section {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 2rem;
+}
+
+
+.skills div {
+	padding: 0 10px;
+
+}
+
+
+.skills h3 {
+	font-weight: bold;
+
+	margin: 10px auto;
+}
+
+
+.skills ul {
+	display: grid;
+	grid-gap: 0.2rem;
+}
+
+
+.skills li {
+	position: relative;
+	padding-left: 1.1em;
+}
+
+
+.skills li::before {
+	content: "■";
+	position: absolute;
+	left: 0;
+	top: 8px;
+	font-size: 0.4rem;
+}
+
+
+/* =========================================
+	Works
+=========================================-*/
+
+
+.works section {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+
+	margin: 10px auto;
+	padding: 0 10px;
+}
+
+
+
 
 
 
@@ -72,8 +135,27 @@ article p {
 
 @media(max-width: 767px){
 
+	article {
+		padding: 15px 30px;
+	}
+
+
+	.page h2 {
+		margin-top: 15px;
+	}
+
 	article p {
 		margin-bottom: 10px;
+	}
+
+
+	.skills section {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+
+	.works section {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 }
