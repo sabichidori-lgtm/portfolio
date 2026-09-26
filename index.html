@@ -7,39 +7,32 @@
 <title>さび猫屋</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/main.css">
 
 <!-- JS -->
-<script src="js/script.js" defer></script>
+<script src="js/index.js" defer></script>
 
 </head>
 
 <body>
 
 	<div class="container index">
-		<nav>
-			<ul>
-				<li class="nav-home"><a href="default.html">Home</a></li>
-				<li><a href="works.html">Works</a></li>
-				<li><a href="skills.html">Skills</a></li>
-				<li><a href="profile.html">Profile</a></li>
-			</ul>
-		</nav>
+		<nav id="nav"><!-- nav.html --></nav>
 
 		<header>
-			<h1><a href="default.html">SABINEKOYA</a></h1>
+			<h1><a href="index.html">SABINEKOYA</a></h1>
 			<div class="mv-bg"><img src="img/mv-bg.jpg" alt="メインバナー"></div>
 		</header>
 
 		<main>
-			<div id="content"><!-- fetchでページが入る --></div>
+			<div id="about"><!-- About --></div>
+			<div id="works"><!-- Works --></div>
+			<div id="skills"><!-- Skills --></div>
+			<div id="profile"><!-- Profile --></div>
 		</main>
 
-		<footer>
-			&copy; 2026 shabinekoya
-		</footer>
+		<footer id="footer"></footer>
 	</div>
 </body>
 </html>
