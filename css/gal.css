@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+@import "index.css";
+@import "main.css";
+
+
+/* =========================================
+	gal全体
+=========================================-*/
+
+.container.gal {
+	--header-height: 400px;
+}
+
+
+/* =========================================
+	gal共通 header
+=========================================-*/
+
+.gal header div {
+	width: 100%;
+	height: 300px;
+
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+
+.gal header h1 {
+	top: 80px;
+
+	font-family: "Klee One", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.4rem;
+	letter-spacing: 0.4rem;
+
+	color: var(--header-text);
+}
+
+
+/* main内の画像 */
+
+.gal header img {
+	display: block;
+	width: 100%;
+	height: 300px;
+
+	object-fit: cover;
+}
+
+
+.gal header p {
+	line-height: 1.6;
+	text-align: center;
+
+	margin: 30px 0 20px;
+}
+
+
+/* =========================================
+	gal共通 main
+=========================================-*/
+
+
+.gal main {
+	width: 100%;
+	max-width: 800px;
+	display: grid;
+	gap: 2rem;
+
+	margin: 30px auto 50px;
+	padding: 0;
+}
+
+/* ===== 見出し ===== */
+
+.gal section {
+	display: grid;
+	gap: 1rem;
+
+	place-items: center;
+}
+
+
+/* ===== 制作例 ===== */
+
+.gal article {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0;
+
+	place-items: center;
+}
+
+
+/* ===== 商品情報 ===== */
+
+.gal aside {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+
+	place-items: center;
+}
+
+.gal aside h4 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.5rem;
+
+	padding-bottom: 5px;
+	border-bottom: 1px solid #333;
+}
+
+.gal aside dl {
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	gap: 10px;
+}
+
+.gal aside dt,
+.gal aside dd {
+	height: auto;
+
+	display: flex;
+	align-items: center;
+
+	padding: 15px 0;
+
+}
+
+.gal aside dt {
+	justify-content: center;
+
+	font-weight: bold;
+}
+
+
+
+
+/* ===== シリーズリンク ===== */
+
+.gal main nav {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+
+	place-items: center;
+
+	margin: 30px 0 20px;
+}
+
+.gal main nav h4 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.5rem;
+
+	padding-bottom: 5px;
+	border-bottom: 1px solid #333;
+}
+
+
+.gal main nav section {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+
+	place-items: center;
+}
+
+.gal main nav section span {
+	margin-top: 10px;
+}
+
+.gal main nav section a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+
+
+/* =========================================
+	sp
+========================================== */
+
+
+@media(max-width: 767px){
+
+	/* ===== header ===== */
+
+	.container.gal {
+		--header-height: 550px;
+	}
+
+	.gal header div {
+		height: 300px;
+	}
+
+	.gal header p {
+		padding: 0 20px;
+	}
+
+	.gal header h1 {
+		position: absolute;
+
+		top: 30px;
+		left: 20px;
+
+		width: 180px;
+
+		padding: 20px 30px;
+	}
+
+	.gal header h1 a {
+		font-size: 0.9rem;
+		letter-spacing: 0.2rem;
+	}
+
+
+	/* ===== article ===== */
+
+	.gal article {
+		padding: 0;
+	}
+
+
+
+	/* ===== シリーズリンク ===== */
+
+	.gal nav section {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+
+		padding: 0 15px;
+	}
+
+
+
+	/* main内の画像 */
+	.gal header img {
+		height: 300px;
+	}
+
+}
+
