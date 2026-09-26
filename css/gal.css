@@ -228,10 +228,18 @@
 	}
 
 
+	/* ===== 商品情報 ===== */
+
+	.gal aside dl {
+		padding: 0 15px;
+	}
+
+
+
 
 	/* ===== シリーズリンク ===== */
 
-	.gal nav section {
+	.gal main nav section {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 15px;
 
