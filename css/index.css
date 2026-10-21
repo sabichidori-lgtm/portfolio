@@ -10,19 +10,23 @@
 
 	/***** ベースカラー *****/
 	--color-main: #FFFFFF;
-	--color-sub: #E8F1EE;
+	--color-sub: #fefce8;
 	--color-white: #FFFFFF;
 	--color-black: #000000;
 	--color-text: #333333;
 	--color-accent: #a6b570;
 
 
+	/***** nav *****/
+	--nav-bg: var(--color-main);
+	--nav-text: var(--color-text);
+	--nav-home: var(--color-accent);
+	--nav-hover: var(--color-sub);
+
+
 	/***** header・footer *****/
 	--header-bg: var(--color-main);
 	--header-text: var(color-text);
-
-	--footer-bg: var(--color-black);
-	--footer-text: var(--color-white);
 
 
 	/***** main *****/
@@ -30,10 +34,15 @@
 	--main-text: var(--color-text);
 
 
-	/***** nav *****/
-	--nav-bg: var(--color-main);
-	--nav-text: var(--color-text);
-	--nav-home: var(--color-accent);
+	/***** カテゴリ別 *****/
+	--about-bg: var(--color-white);
+	--works-bg: var(--color-sub);
+	--skills-bg: var(--color-white);
+	--profile-bg: var(--color-sub);
+
+	/***** footer *****/
+	--footer-bg: var(--color-sub);
+	--footer-text: var(--color-text);
 
 
 	/***** a *****/
@@ -43,10 +52,8 @@
 
 	/***** work-accent *****/
 	--accent-text: var(--color-accent);
-
-
-
 }
+
 
 
 
@@ -64,37 +71,11 @@ body {
 }
 
 body {
-	font-size: 18px;
+	font-size: 16px;
 	color: var(--color-text);
 	background-color: var(--color-white);
 }
 
-
-
-/* ========================================
-   コンテナ
-======================================== */
-
-
-.container {
-	width: 100%;
-	min-height: 100vh;
-	height: auto;
-
-	display: grid;
-	grid: "nav"
-		  "header"
-		  "main"
-		  "footer";
-	grid-template-rows: 40px var(--header-height) 1fr 50px;
-	grid-template-columns: 1fr;
-	position: relative;
-}
-
-
-.container.index {
-	--header-height: 430px;
-}
 
 
 /* ========================================
@@ -114,6 +95,28 @@ a:hover {
 
 
 /* ========================================
+   コンテナ
+======================================== */
+
+
+.container {
+	width: 100%;
+	min-height: 0;
+	height: 100vh;
+
+	display: grid;
+	grid: "nav"
+		  "scroll-area"
+		  "footer";
+	grid-template-rows: 50px 1fr 50px;
+	grid-template-columns: 1fr;
+	gap: 0;
+}
+
+
+
+
+/* ========================================
    id="nav"
 ======================================== */
 
@@ -128,15 +131,8 @@ a:hover {
 	width: 100%;
 	text-align: center;
 
-	background-color: var(--nav-bg);
-
+	background-color: rgba(255, 255, 255, 0.8);
 }
-
-
-
-/* ========================================
-   nav内のリスト
-======================================== */
 
 
 #nav ul {
@@ -150,14 +146,50 @@ a:hover {
 }
 
 
-#nav a {
-	display: block;
 
-	text-decoration: none;
-	font-weight: bold;
-	letter-spacing: 0.2rem;
+#nav a {
+	position: relative;
+	display: inline-block;
+	z-index: 0;
 
 	color: var(--nav-text);
+}
+
+#nav a::after {
+	content: "";
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 50%;
+	top: 50%;
+
+	background-color: var(--nav-hover);
+	border-radius: 50%;
+
+/* SVG画像差し替え
+	background-image: url("../img/paw.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+*/
+
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.4);
+	transition: 0.2s ease;
+	pointer-events: none;
+	z-index: -1;
+}
+
+
+#nav a:hover {
+	opacity: 1;
+	color: var(--nav-home);
+}
+
+
+#nav a:hover::after {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
 }
 
 
@@ -166,22 +198,60 @@ a:hover {
 }
 
 
+#nav .nav-home a:hover {
+	opacity: 0.7;
+}
+
+
+
+/* =========================================
+	scroll-area/スクロール設定
+========================================== */
+
+.scroll-area {
+	grid-area: scroll-area;
+
+	position: relative;
+
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+
+
+.scroll-area header {
+	overflow: hidden;
+	height: 400px;
+
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+
+main {
+	display: contents;
+}
+
+
+main > div {
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	width: 100%;
+	min-height: 100%;
+}
+
 
 
 /* =========================================
 	header
 ========================================== */
 
-
 header {
-	grid-area: header;
-	position: relative;
 
-	width: 100%;
-	min-width: 0;
-	min-height: 0;
-	overflow: hidden;
 }
+
+
+/* header内のh1 */
 
 header h1 {
 	position: absolute;
@@ -233,23 +303,30 @@ header h1 a {
 }
 
 
-/* header内コンテンツ */
+/* header内の画像 */
 
 .mv-bg {
 	width: 100%;
+	height: 400px;	/* headerと同じ高さ */
+
+	/* 画像の位置設定 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* 装飾 */
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
 
-/* header内の画像 */
-
 .mv-bg img {
 	display: block;
-	width: 100%;
-	height: 500px;
+	width: auto;
+	height: auto;
 	object-fit: cover;
 
+	/* アニメーション*/
 	transition: transform 0.5s ease, filter 0.5s ease;
 	transform: scale(1);
 	filter: blur(0);
@@ -264,30 +341,34 @@ header h1 a {
 }
 
 
-
 /* =========================================
 	main
 ========================================== */
 
 
 main {
-	grid-area: main;
 
-	width: 100%;
-	min-width: 0;
-	min-height: 0;
-
-	place-items: center;
-
-	background-color: var(--main-bg);
-	color: var(--main-text);
 }
 
 
+/* main / 背景色 */
 
-main div {
-	width: 80%;
+#about{
+	background-color: var(--about-bg);
 }
+
+#works{
+	background-color: var(--works-bg);
+}
+
+#skills{
+	background-color: var(--skills-bg);
+}
+
+#profile{
+	background-color: var(--profile-bg);
+}
+
 
 
 /* =========================================
@@ -315,21 +396,11 @@ footer {
 	sp
 ========================================== */
 
-
 @media(max-width: 767px){
 
 	body {
 		font-size: 16px;
 	}
-
-
-	/* ===== container ===== */
-
-	.container.index {
-		--header-height: 300px;
-	}
-
-
 
 	/* ===== id="nav" ===== */
 
@@ -340,6 +411,14 @@ footer {
 	#nav a {
 		font-size: 0.9rem;
 		letter-spacing: 0.1rem;
+	}
+
+
+	/* ===== scroll-area/スクロール設定 ===== */
+
+	.scroll-area header {
+		overflow: hidden;
+		height: 300px;
 	}
 
 
@@ -362,26 +441,14 @@ footer {
 	}
 
 
+	.mv-bg {
+		height: 300px;
+	}
+
 	/* main内の画像 */
 	.mv-bg img {
-		height: 390px;
+		height: 400px;
+		margin-top: 5rem;
 	}
-
-
-
-
-
-	/* ===== main ===== */
-
-	main {
-		margin-bottom: 30px;
-	}
-
-	main div {
-		width: 100%;
-	}
-
 
 }
-
-

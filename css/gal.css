@@ -5,17 +5,93 @@
 
 
 /* =========================================
+	カラー設定 / Gal用
+=========================================-*/
+
+
+:root {
+
+	/***** ベースカラー *****/
+/*
+	--color-main: #FFFFFF;
+	--color-sub: #fefce8;
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+	--color-text: #333333;
+	--color-accent: #a6b570;
+*/
+
+	/***** nav *****/
+	--galnav-bg: var(--color-accent);
+	--galnav-text: var(--color-white);
+	--galnav-hover: var(--color-white);
+
+}
+
+
+/* =========================================
 	gal全体
 =========================================-*/
 
 .container.gal {
-	--header-height: 400px;
+	display: grid;
+	grid: "nav"
+		  "scroll-area-gal"
+		  "footer";
+	grid-template-rows: 50px 1fr 50px;
+	grid-template-columns: 1fr;
+}
+
+
+
+
+
+/* =========================================
+	scroll-area/スクロール設定
+========================================== */
+
+.scroll-area-gal {
+
+	position: relative;
+
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+
+
+.scroll-area header {
+	overflow: hidden;
+	height: 300px;
+
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+
+.gal main {
+	display: contents;
+}
+
+
+.gal main. > section,
+.gal main > article,
+.gal main > aside {
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	width: 100%;
+	min-height: 100%;
 }
 
 
 /* =========================================
 	gal共通 header
 =========================================-*/
+
+.gal header {
+	grid-area: gal-header;
+}
+
 
 .gal header div {
 	width: 100%;
@@ -39,7 +115,7 @@
 }
 
 
-/* main内の画像 */
+/* header内の画像 */
 
 .gal header img {
 	display: block;
@@ -50,12 +126,58 @@
 }
 
 
-.gal header p {
-	line-height: 1.6;
-	text-align: center;
+.gal header nav ul {
+	width: 80%;
+	height: 100%;
 
-	margin: 30px 0 20px;
+	display: flex;
+	gap: 20px 50px;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 50px;
+
+	margin: 20px auto 0;
+	padding: 15px 0;
+
+	background-color: var(--galnav-bg);
 }
+
+
+.gal header nav ul a {
+	color: var(--galnav-text);
+}
+
+
+.gal header nav ul a::before,
+.gal header nav ul a::after {
+	content: "‥";
+	display: inline-block;
+
+	font-size: 0.8rem;
+
+
+	opacity: 0;
+	transform: translateY(0px);	/* 上下調整 */
+	transition: all .3s;
+
+	color: var(--galnav-hover);
+}
+
+.gal header nav ul a::before {
+	margin-right: 0.3em;
+}
+
+.gal header nav ul a::after{
+	margin-left: 0.3em;
+}
+
+.gal header nav ul a:hover::before,
+.gal header nav ul a:hover::after {
+	opacity: 1;
+	transform: translateY(-2px);
+}
+
 
 
 /* =========================================
@@ -64,6 +186,8 @@
 
 
 .gal main {
+	grid-area: gal-main;
+
 	width: 100%;
 	max-width: 800px;
 	display: grid;
@@ -73,9 +197,22 @@
 	padding: 0;
 }
 
-/* ===== 見出し ===== */
 
-.gal section {
+/* main内の文章 */
+
+.gal main p {
+	line-height: 1.8;
+	text-align: left;
+
+	margin: 10px 0;
+	padding: 0 10px;
+}
+
+
+
+/* ===== 制作概要 ===== */
+
+#overview {
 	display: grid;
 	gap: 1rem;
 
@@ -85,7 +222,7 @@
 
 /* ===== 制作例 ===== */
 
-.gal article {
+#gallery {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 0;
@@ -94,9 +231,10 @@
 }
 
 
-/* ===== 商品情報 ===== */
+/* ===== 制作意図 ===== */
 
-.gal aside {
+#concept {
+	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 2rem;
@@ -104,7 +242,7 @@
 	place-items: center;
 }
 
-.gal aside h4 {
+#concept h4 {
 	width: 100%;
 	text-align: center;
 	font-size: 1.5rem;
@@ -113,14 +251,15 @@
 	border-bottom: 1px solid #333;
 }
 
-.gal aside dl {
+#concept dl {
+	width: 100%;
 	display: grid;
 	grid-template-columns: 120px 1fr;
-	gap: 10px;
+	gap: 10px 20px;
 }
 
-.gal aside dt,
-.gal aside dd {
+#concept dt,
+#concept dd {
 	height: auto;
 
 	display: flex;
@@ -130,8 +269,8 @@
 
 }
 
-.gal aside dt {
-	justify-content: center;
+#concept dt {
+	justify-content: flex-start;
 
 	font-weight: bold;
 }
@@ -155,16 +294,11 @@
 .gal main nav h4 {
 	width: 100%;
 	text-align: center;
-	font-size: 1.5rem;
-
-	padding-bottom: 5px;
-	border-bottom: 1px solid #333;
 }
 
 
 .gal main nav section {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
 	gap: 3rem;
 
 	place-items: center;
@@ -179,6 +313,135 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+
+
+/* =========================================
+	ページトップへ戻る
+========================================== */
+
+
+.page-top {
+	position: fixed;
+	right: 30px;
+	bottom: 70px;
+	z-index: 100;
+
+	display: grid;
+	place-items: center;
+
+	width: 44px;
+	height: 44px;
+
+	border: 1px solid currentColor;
+	border-radius: 50%;
+
+	color: var(--nav-text);
+	background: var(--nav-bg);
+	text-decoration: none;
+
+	transition: opacity 0.3s;
+}
+
+.page-top:hover {
+	opacity: 0.7;
+}
+
+
+
+
+/* =========================================
+	gal1
+========================================== */
+
+.gal1 nav h4 {
+	font-size: 1.5rem;
+
+	padding-bottom: 5px;
+	border-bottom: 1px solid #333;
+}
+
+.gal1 nav section {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+
+
+
+
+
+
+/* =========================================
+	gal2
+========================================== */
+
+.gal2 aside {
+	gap: 1rem;
+}
+
+
+.gal2 aside h4 {
+	border-bottom: 2px solid #333;
+}
+
+.gal2 aside table {
+	width: 100%;
+
+	border-collapse: separate;
+	border-spacing: 0 20px;
+
+	border-bottom: 2px solid #333;
+}
+
+.gal2 aside th {
+	width: 30%;
+	text-align: center
+}
+
+.gal2 aside td {
+	width: 70%;
+}
+
+.gal2 aside th,
+.gal2 aside td {
+	vertical-align: middle;
+	padding: 0;
+
+	border-bottom: 1px solid #333;
+}
+
+.gal2 aside tr:last-child th,
+.gal2 aside tr:last-child td {
+	border-bottom: none;
+}
+
+
+
+.gal2 nav h4 {
+	height: 30px;
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	font-size: 1.3rem;
+}
+
+.gal2 nav h4::before,
+.gal2 nav h4::after {
+	content: "▼";
+
+	font-size: 0.9rem;
+	text-align: center;;
+
+	padding: 5px 8px;
+}
+
+
+.gal2 nav section {
+	grid-template-columns: repeat(2, 1fr);
+}
+
 
 
 
@@ -197,12 +460,15 @@
 	}
 
 	.gal header div {
-		height: 300px;
+		height: 250px;
 	}
 
-	.gal header p {
-		padding: 0 20px;
+
+	.gal header nav ul {
+		width: 90%;
+		gap: 20px 30px;
 	}
+
 
 	.gal header h1 {
 		position: absolute;
@@ -221,6 +487,13 @@
 	}
 
 
+	/* ===== main ===== */
+
+	.gal main p {
+		padding: 0 30px;
+	}
+
+
 	/* ===== article ===== */
 
 	.gal article {
@@ -231,7 +504,7 @@
 	/* ===== 商品情報 ===== */
 
 	.gal aside dl {
-		padding: 0 15px;
+		padding: 0 20px;
 	}
 
 
@@ -248,9 +521,9 @@
 
 
 
-	/* main内の画像 */
+	/* header内の画像 */
 	.gal header img {
-		height: 300px;
+		height: 250px;
 	}
 
 }
