@@ -17,20 +17,31 @@
 	<div class="container gal">
 		<nav id="nav"><!-- nav.html --></nav>
 
-		<header>
+	<div class="scroll-area-gal">
+		<header id="top">
 			<div>
 				<h1>Gal-01</h1>
 				<img src="img/gal01-img_top.jpg" alt="gal-01バナー">
 			</div>
-			<p>
-				実務で担当した家具商品のECページを元にした架空制作です。<br>
-				実際の商品・ブランド情報は使用していません。
-			</p>
+			<nav>
+				<ul>
+					<li><a href="gal01.html#overview">制作概要</a></li>
+					<li><a href="gal01.html#gallery">制作物</a></li>
+					<li><a href="gal01.html#concept">制作意図</a></li>
+				</ul>
+			</nav>
 		</header>
 
-		<main class="gal01">
+		<main class="gal1">
 
-			<article>
+			<section id="overview">
+				<p>
+					実務で担当した家具商品のEC商品ページをもとに、ポートフォリオ用に再構成した架空制作です。<br>
+					商品情報の整理から説明文の校正、商品説明画像の制作までを行い、スマートフォンでの閲覧を想定したページ構成としています。
+				</p>
+			</section>
+
+			<article id="gallery">
 				<img src="img/gal01-img_main.jpg">
 				<img src="img/gal01-img_01.jpg">
 				<img src="img/gal01-img_02.jpg">
@@ -41,41 +52,29 @@
 			</article>
 
 
-			<aside>
-				<h4>Gal-01 フライパン20cm</h4>
+			<aside id="concept">
+				<h4>制作意図</h4>
 
 				<dl>
-					<dt>サイズ</dt>
-					<dd>全長350×奥行210×全高90mm</dd>
-					<dt>重量</dt>
-					<dd>470g</dd>
-					<dt>材質</dt>
-					<dd>アルミニウム合金（セラミックコーティング）／ステンレス鋼／フェノール樹脂</dd>
-					<dt>対応熱源</dt>
-					<dd>IHを含む全ての熱源</dd>
-					<dt>生産国</dt>
-					<dd>ベトナム</dd>
-					<dt>特徴</dt>
-					<dd>セラミックコーティングを施した軽量フライパン。焦げ付きにくく、耐摩耗性に優れています。木目調のグリップを採用したナチュラルなデザイン。</dd>
-					<dt>注意事項</dt>
-					<dd>IHの揚げ物・天ぷらモードは使用不可。商品画像の小物は付属しません。</dd>
+					<dt>カラー設計</dt>
+					<dd>実務で担当した商品は取っ手に木目が使用されていたため、木の温かみをイメージしたブラウンを採用しました。</dd>
+					<dt>情報の伝え方</dt>
+					<dd>商品説明は画像を中心に構成し、文章は補足として使用。<br>
+						視覚的に商品の特徴を伝えながら、必要な情報を補えるようにしました。</dd>
+					<dt>文章の整理</dt>
+					<dd>旧Twitterの投稿文字数上限である140文字を目安に、読みやすい文章量を意識。<br>
+						商品の魅力や特徴を伝えるキーポイントを残しながら、内容を整理・校正しました。</dd>
+					<dt>ECサイトの仕様への対応</dt>
+					<dd>実務ではスマートフォン版を中心に制作しているため、商品説明のデザインは画像で作成しています。<br>
+						楽天市場やYahoo!ショッピングのスマートフォン向け商品ページにはHTML・CSSの使用に制約があるため、表示仕様を踏まえた構成としています。</dd>
 				</dl>
 			</aside>
-
-			<nav>
-				<h4>Gal-01 シリーズリンク</h4>
-
-				<section>
-					<a href="#"><img src="img/gal01-img_linksm.jpg" alt="リンクサムネイル"><span>フライパン20cm</span></a>
-					<a href="#"><img src="img/gal01-img_linksm.jpg" alt="リンクサムネイル"><span>フライパン24cm</span></a>
-					<a href="#"><img src="img/gal01-img_linksm.jpg" alt="リンクサムネイル"><span>フライパン26cm</span></a>
-					<a href="#"><img src="img/gal01-img_linksm.jpg" alt="リンクサムネイル"><span>エッグパン</span></a>
-				<section>
-			</nav>
-
-
 		</main>
+	</div>
 
+	<a href="gal01.html#top" class="page-top" aria-label="ページトップへ戻る">
+		↑
+	</a>
 
 		<footer id="footer"></footer>
 
